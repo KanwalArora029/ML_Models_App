@@ -4,41 +4,37 @@ Created on Sun Feb  7 19:57:48 2021
 
 @author: kanwal 
 """
-import streamlit as st
+import flask
+import pickle
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
 
 
 
+
+app = flask.Flask(__name__, template_folder='templates')
+@app.route('/')
 def main():
-    """All Ml Projects in One """
-    
-    st.title(" All in one Web App")
-    
-    sectors = ["Health Care", "Finance", "Open CV"]
-    choice = st.sidebar.selectbox("Select your sector", sectors)
-    
-    hc_models = ["Heart Disease", "Cancer"]
-     
-        
-    if choice == 'Health Care':
-        st.subheader("Welcome to Healthcare Section")
-        hc_choice = st.sidebar.radio("Select your sector", hc_models)
-        if hc_choice == 'Heart Disease':
-            st.subheader('Know your heart health')
-        
-        if hc_choice == 'Cancer':
-            st.subheader('Please check your health')
-            
-    
-    if choice == 'Finance':
-        st.subheader('Welcome to finance section')
-        
-    
-    if choice == 'Open CV':
-        st.subheader('Welcome to the world of Artificial Intelligence')
+    return (flask.render_template('index.html'))
+
+
+@app.route('/healthcare')
+def healthcare():
+    return(flask.render_template(
+        'healthcare.html',
+        title="Health Care",
+        description="Welcome to Health Care section"))
+
+@app.route('/finance')
+def finance():
+    return(flask.render_template('finance.html'))
+
+@app.route('/opencv')
+def opencv():
+    return(flask.render_template('opencv.html'))
 
 
 if __name__ == '__main__':
-	main()
+	app.run(debug=True)
