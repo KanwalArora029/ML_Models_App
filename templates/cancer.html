@@ -103,10 +103,83 @@
                   <h4>{{description}}
               </div>
          </div>
-        <p>
-          Example inner page template
-        </p>
-      </div>
+         <div class="cancer_predict" class="ex-basic-2">
+           <div class = "container">
+              <form id="cancer_predict_form" name="cancer_predict_form" class="col-md-12" action="{{url_for('cancer')}}" method="POST">
+                <div class="row gy-4"> 
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+						   <input name="radius_worst" type="text" class="form-control" id="radius_worst" placeholder="Radius Worst">
+                       </div>
+                       <div class="col-md-6">
+							<input name="radius_mean" type="text" class="form-control" id="radius_mean" placeholder="Radius Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+							<input name="concave_points_worst" type="text" class="form-control" id="concave_points_worst" placeholder="Concave Points Worst">
+                       </div>
+                       
+                       <div class="col-md-6">
+						   <input name="concave_points_mean" type="text" class="form-control" id="concave_points_mean" placeholder="Concave Points Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+							<input name="concavity_worst" type="text" class="form-control" id="concavity_worst" placeholder="Concavity Worst">
+                       </div>
+                       <div class="col-md-6">
+							<input name="concavity_mean" type="text" class="form-control" id="concavity_mean" placeholder="Concavity Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+						   <input name="primeter_worst" type="text" class="form-control" id="primeter_worst" placeholder="Perimeter Worst">
+                       </div>
+                       
+                       <div class="col-md-6">
+						   <input name="perimiter_mean" type="text" class="form-control" id="perimiter_mean" placeholder="Perimeter Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+							<input name="area_worst" type="text" class="form-control" id="area_worst" placeholder="Area Worst">
+                       </div>
+                       <div class="col-md-6">
+							<input name="area_mean" type="text" class="form-control" id="area_mean" placeholder="Area Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+						   <input name="texture_worst" type="text" class="form-control" id="texture_worst" placeholder="Texture Worst">
+                       </div>
+                       
+                       <div class="col-md-6">
+						   <input name="texture_mean" type="text" class="form-control" id="texture_mean" placeholder="Texture Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+							<input name="compactness_worst" type="text" class="form-control" id="compactness_worst" placeholder="Compactness Worst">
+                       </div>
+                       <div class="col-md-6">
+							<input name="compactness_mean" type="text" class="form-control" id="compactness_mean" placeholder="Compactness Mean">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+							<input name="area_se" type="text" class="form-control" id="area_se" placeholder="Area SE">
+                       </div>
+                       <div class="col-md-6">
+							<button type="submit" class="btn btn-outline-primary">Predict Cancer</button>
+                       </div>
+                       
+                        
+                </div>
+              </form>   
+           </div>
+         </div>
     </section>
 
   </main><!-- End #main -->

@@ -27,13 +27,32 @@ def healthcare():
         title="Health Care",
         description="Welcome to Health Care section"))
 
+@app.route('/cancer')
+def cancer():
+    return(flask.render_template('cancer.html',
+                                 title = 'Breast Cancer Prediction',
+                                 description = "Predict the type of Breast Cancer"))
+
 @app.route('/finance')
 def finance():
-    return(flask.render_template('finance.html'))
+    return(flask.render_template(
+        'finance.html',
+        title="Finance",
+        description="Welcome to Finance section"))
+
+@app.route('/aggriculture')
+def aggriculture():
+    return(flask.render_template(
+        'aggriculture.html',
+        title="Aggriculture",
+        description="Welcome to Aggriculture section"))
 
 @app.route('/opencv')
 def opencv():
-    return(flask.render_template('opencv.html'))
+    return(flask.render_template(
+        'opencv.html',
+        title="Open CV",
+        description="Welcome to Open CV section"))
 
 
 if __name__ == '__main__':
