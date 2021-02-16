@@ -1,86 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>FlexStart Bootstrap Template - Index</title>
-  <meta content="" name="description">
-
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="/assets/img/favicon.png" rel="icon">
-  <link href="templates/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-  <link href="{{url_for('static', filename='vendor/aos/aos.css')}}" rel="stylesheet">
-  <link href="{{url_for('static', filename='vendor/remixicon/remixicon.css')}}" rel="stylesheet">
-  <link href="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-  <link href="{{url_for('static', filename='vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: FlexStart - v1.1.0
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
- <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="/" class="logo d-flex align-items-center">
-      <img src="{{url_for('static',filename='img/logo.png')}}" class="img-fluid" alt="">
-        <span>FlaskAI</span>
-      </a>
-
-       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link" href="/">Home</a></li>
-          <!--<li><a class="nav-link scrollto" href="#about">Healthcare</a></li>-->
-          <!--<li><a class="nav-link scrollto" href="#services">Finance</a></li>-->
-          <!--<li><a class="nav-link scrollto" href="#portfolio">Open CV</a></li>-->
-          <li><a class="nav-link active" href="healthcare">Healthcare</a></li>
-          <li><a class="nav-link" href="finance">Finance</a></li>
-          <li><a class="nav-link" href="opencv">Open CV</a></li>
-          <li><a class="nav-link" href="aggriculture">Aggriculture</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <!--<li><a class="getstarted scrollto" href="#about">Get Started</a></li>-->
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav> <!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+{% extends "base.html" %} {% block content %}
   
   <main id="main">
 
@@ -103,76 +21,67 @@
                   <h4>{{description}}
               </div>
          </div>
-         <div class="cancer_predict" class="ex-basic-2">
+         <div class="cancer_predict mt-2 pt-2" class="ex-basic-2 ">
            <div class = "container">
-              <form id="cancer_predict_form" name="cancer_predict_form" class="col-md-12" action="{{url_for('cancer')}}" method="POST">
+              <form id="cancer_predict_form" name="cancer_predict_form" class="col-md-12" action="{{url_for('check_cancer')}}" method="POST">
                 <div class="row gy-4"> 
                        
                        <!--  -->
                        <div class="col-md-6">
-						   <input name="radius_worst" type="text" class="form-control" id="radius_worst" placeholder="Radius Worst">
+						   <input name="radius_mean" type="text" class="form-control" id="radius_worst" placeholder="Radius Mean">
                        </div>
                        <div class="col-md-6">
-							<input name="radius_mean" type="text" class="form-control" id="radius_mean" placeholder="Radius Mean">
+							<input name="radius_se" type="text" class="form-control" id="radius_mean" placeholder="Radius Se">
                        </div>
                        
                        <!--  -->
                        <div class="col-md-6">
-							<input name="concave_points_worst" type="text" class="form-control" id="concave_points_worst" placeholder="Concave Points Worst">
+							<input name="compactness_mean" type="text" class="form-control" id="concave_points_worst" placeholder="Compactness Mean">
                        </div>
                        
                        <div class="col-md-6">
-						   <input name="concave_points_mean" type="text" class="form-control" id="concave_points_mean" placeholder="Concave Points Mean">
-                       </div>
-                       
-                       <!--  -->
-                       <div class="col-md-6">
-							<input name="concavity_worst" type="text" class="form-control" id="concavity_worst" placeholder="Concavity Worst">
-                       </div>
-                       <div class="col-md-6">
-							<input name="concavity_mean" type="text" class="form-control" id="concavity_mean" placeholder="Concavity Mean">
+						   <input name="compactness_se" type="text" class="form-control" id="concave_points_mean" placeholder="Compactness Se">
                        </div>
                        
                        <!--  -->
                        <div class="col-md-6">
-						   <input name="primeter_worst" type="text" class="form-control" id="primeter_worst" placeholder="Perimeter Worst">
-                       </div>
-                       
-                       <div class="col-md-6">
-						   <input name="perimiter_mean" type="text" class="form-control" id="perimiter_mean" placeholder="Perimeter Mean">
-                       </div>
-                       
-                       <!--  -->
-                       <div class="col-md-6">
-							<input name="area_worst" type="text" class="form-control" id="area_worst" placeholder="Area Worst">
+							<input name="fractal_dimension_mean" type="text" class="form-control" id="concavity_worst" placeholder="Fractol Dimension Mean">
                        </div>
                        <div class="col-md-6">
-							<input name="area_mean" type="text" class="form-control" id="area_mean" placeholder="Area Mean">
+							<input name="fractal_dimension_se" type="text" class="form-control" id="concavity_mean" placeholder="Fractol Dimension Se">
                        </div>
                        
                        <!--  -->
                        <div class="col-md-6">
-						   <input name="texture_worst" type="text" class="form-control" id="texture_worst" placeholder="Texture Worst">
+						   <input name="texture_mean" type="text" class="form-control" id="primeter_worst" placeholder="Texture Mean">
                        </div>
                        
                        <div class="col-md-6">
-						   <input name="texture_mean" type="text" class="form-control" id="texture_mean" placeholder="Texture Mean">
-                       </div>
-                       
-                       <!--  -->
-                       <div class="col-md-6">
-							<input name="compactness_worst" type="text" class="form-control" id="compactness_worst" placeholder="Compactness Worst">
-                       </div>
-                       <div class="col-md-6">
-							<input name="compactness_mean" type="text" class="form-control" id="compactness_mean" placeholder="Compactness Mean">
+						   <input name="texture_se" type="text" class="form-control" id="perimiter_mean" placeholder="Texture Se">
                        </div>
                        
                        <!--  -->
                        <div class="col-md-6">
-							<input name="area_se" type="text" class="form-control" id="area_se" placeholder="Area SE">
+							<input name="smoothness_mean" type="text" class="form-control" id="area_worst" placeholder="Smoothness Mean">
                        </div>
+                       <div class="col-md-6">
+							<input name="smoothness_se" type="text" class="form-control" id="area_mean" placeholder="Smoothness Se">
+                       </div>
+                       
+                       <!--  -->
+                       <div class="col-md-6">
+						   <input name="symmetry_mean" type="text" class="form-control" id="texture_worst" placeholder="Symmetry Mean">
+                       </div>
+                       
+                       <div class="col-md-6">
+						   <input name="symmetry_se" type="text" class="form-control" id="texture_mean" placeholder="Symmetry Se">
+                       </div>
+                       
                        <div class="col-md-6">
 							<button type="submit" class="btn btn-outline-primary">Predict Cancer</button>
+                       </div>
+                       <div class="col-md-10">
+                           <h1>{{prediction_text}}</h1>
                        </div>
                        
                         
@@ -184,112 +93,4 @@
 
   </main><!-- End #main -->
   
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12 text-center">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          </div>
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <img src="assets/img/logo.png" alt="">
-              <span>FlexStart</span>
-            </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
-  <script src="{{url_for('static', filename='vendor/aos/aos.js')}}"></script>
-  <script src="{{url_for('static', filename='vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
-  <script src="{{url_for('static', filename='vendor/purecounter/purecounter.js')}}"></script>
-  <script src="{{url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-  <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
-  
-  
-
-  <!-- Template Main JS File -->
-  <script src="{{url_for('static', filename='js/main.js')}}"></script>
-
-</body>
-
-</html>
-
-</body>
+   {% endblock %}
